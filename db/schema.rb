@@ -14,10 +14,11 @@
 ActiveRecord::Schema.define(:version => 20120609124806) do
 
   create_table "categories", :force => true do |t|
-    t.string   "title"
+    t.string   "name"
+    t.string   "description"
     t.integer  "parent_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "customer_orders", :force => true do |t|
@@ -42,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20120609124806) do
   end
 
   create_table "drivers", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -65,7 +67,8 @@ ActiveRecord::Schema.define(:version => 20120609124806) do
   end
 
   create_table "items", :force => true do |t|
-    t.string   "title"
+    t.string   "name"
+    t.text     "description"
     t.integer  "category_id"
     t.integer  "restaurant_id"
     t.datetime "created_at",    :null => false
@@ -112,7 +115,8 @@ ActiveRecord::Schema.define(:version => 20120609124806) do
   end
 
   create_table "restaurants", :force => true do |t|
-    t.string   "title"
+    t.string   "name"
+    t.text     "description"
     t.integer  "location_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false

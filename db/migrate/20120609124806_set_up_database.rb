@@ -25,20 +25,23 @@ class SetUpDatabase < ActiveRecord::Migration
     end
     
     create_table :restaurants do |t|
-      t.string :title
+      t.string :name
+      t.text :description
       t.references :location
       t.timestamps
     end
     
     # Food categories, that is. This can be a tree - categories have subcategories, subsubcategories, etc.
     create_table :categories do |t|
-      t.string :title
+      t.string :name
+      t.string :description
       t.integer :parent_id
       t.timestamps
     end
     
     create_table :items do |t|
-      t.string :title
+      t.string :name
+      t.text :description
       t.references :category
       t.references :restaurant
       t.timestamps
@@ -70,6 +73,7 @@ class SetUpDatabase < ActiveRecord::Migration
     end
     
     create_table :drivers do |t|
+      t.string :name
       t.timestamps
     end
     
