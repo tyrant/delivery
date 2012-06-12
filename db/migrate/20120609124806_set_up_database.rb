@@ -86,6 +86,7 @@ class SetUpDatabase < ActiveRecord::Migration
     
     create_table :instruction_queues do |t|
       t.references :driver
+      t.string :queue_items
       t.timestamps
     end
     
